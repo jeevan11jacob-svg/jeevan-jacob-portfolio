@@ -682,3 +682,425 @@ footer {
         padding: 25px;
     }
 }
+/* =========================================
+   STAGE 1 — HERO ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* Hero text entrance */
+
+.hero-tag {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.hero h1 {
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.hero h2 {
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.hero-description {
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.hero-buttons {
+    animation: fadeUp 0.9s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+
+/* Profile image entrance + floating */
+
+.hero-image {
+    animation: fadeRight 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.hero-image img {
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   NAVIGATION ANIMATION
+========================================= */
+
+.nav-logo {
+    transition: 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #60a5fa;
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: #60a5fa;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   BUTTON MICRO-INTERACTION
+========================================= */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    transition: left 0.4s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+/* =========================================
+   STAGE 2 — SCROLL REVEAL
+========================================= */
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section entrance */
+
+
+/* Cards */
+
+
+/* Staggered skill cards */
+
+
+
+
+
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+
+}
+/* =========================================
+   REAL SCROLL REVEAL
+========================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =========================================
+   STAGE 3 — INTERACTIVE CARDS
+========================================= */
+
+.skill-card,
+.project-card,
+.experience-card,
+.education-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated accent line */
+
+.skill-card::before,
+.project-card::before,
+.experience-card::before,
+.education-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 3px;
+
+    background: #60a5fa;
+
+    transition: width 0.4s ease;
+}
+
+.skill-card:hover::before,
+.project-card:hover::before,
+.experience-card:hover::before,
+.education-card:hover::before {
+    width: 100%;
+}
+
+
+/* Skill card interaction */
+
+.skill-card {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+
+/* Project card interaction */
+
+.project-card {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 20px 45px rgba(37, 99, 235, 0.18);
+}
+
+
+/* Project number */
+
+.project-number {
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.project-card:hover .project-number {
+    transform: translateX(5px);
+
+    color: #93c5fd;
+}
+
+
+/* Skill icon */
+
+.skill-icon {
+    transition:
+        transform 0.35s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+
+/* Project link */
+
+.project-link {
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.project-card:hover .project-link {
+    transform: translateX(8px);
+}
+
+
+/* Technology tags */
+
+.tech-list span {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.tech-list span:hover {
+    transform: translateY(-3px);
+
+    background: #1d4ed8;
+
+    color: white;
+}
+/* =========================================
+   STAGE 4 — MOBILE NAVIGATION
+========================================= */
+
+.menu-toggle {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    nav {
+        position: sticky;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: #0b1120;
+
+        border-bottom: 1px solid #1e293b;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 0;
+
+        padding: 0;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition: max-height 0.4s ease;
+    }
+
+    .nav-links.active {
+        max-height: 400px;
+
+        padding: 20px 0;
+    }
+
+    .nav-links a {
+        padding: 12px;
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+}
